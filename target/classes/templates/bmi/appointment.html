@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Appointment</title>
+    <th:block th:replace="layout :: link-css"></th:block>
+</head>
+<body>
+<th:block th:replace="layout :: header"></th:block>
+<div layout:fragment="content" class="container">
+    <div class="row no-print">
+        <div class="job__title">
+            <div class="job__title__name">
+                Appointment
+            </div>
+            <div class="job__title_nav">
+                <div class="job__title__nav__item first">
+                    <a href="/account">
+                        Account
+                    </a>
+                </div>
+                <div class="job__title__nav__item">
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                </div>
+                <div class="job__title__nav__item last">
+                    Appointment
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="join-content">
+            <div class="join-content__child">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th scope="col">Date Appointment</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="appointment : ${listAppointment}">
+                        <td th:text="${appointment.date_appointment}"></td>
+                        <td th:if="${appointment.isCheck == false}">Waiting confirmed</td>
+                        <td th:if="${appointment.isCheck != false}">Confirmed</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<th:block th:replace="layout :: footer"></th:block>
+</body>
+</html>

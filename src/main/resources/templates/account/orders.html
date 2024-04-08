@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Orders</title>
+    <th:block th:replace="layout :: link-css"></th:block>
+</head>
+<body>
+    <th:block th:replace="layout :: topbar"></th:block>
+    <th:block th:replace="layout :: header"></th:block>
+    <!-- Page Header Start -->
+    <div class="container-fluid bg-secondary mb-5">
+        <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+            <h1 class="font-weight-semi-bold text-uppercase mb-3">Orders</h1>
+            <div class="d-inline-flex">
+                <p class="m-0"><a href="/account">Account</a></p>
+                <p class="m-0 px-2">-</p>
+                <p class="m-0">Orders</p>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+    <div class="container">
+        <div class="row" style="margin: 20px 0;">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Date</th>
+                    <th scope="col">Total amount</th>
+                    <th scope="col">Payment status</th>
+                    <th scope="col">Order status</th>
+                    <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="order:${listOrder}">
+                    <th scope="row" th:text="${order.id}"></th>
+                    <td th:text="${order.order_date}"></td>
+                    <td th:text="${order.totalAmount}"></td>
+                    <td th:if="${order.isPaid != false}">Paid</td>
+                    <td th:if="${order.isPaid == false}">Unpaid</td>
+                    <td th:text="${order.type.name}"></td>
+                    <td>
+                        <div class="orders__btn">
+                            <a class="btn btn-primary" th:href="@{/account/orders/detail/{id}(id=${order.id})}">Detail</a>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <th:block th:replace="layout :: footer"></th:block>
+</body>
+</html>

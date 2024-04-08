@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Chat</title>
+  <th:block th:replace="layout :: link-css"></th:block>
+  <link th:fragment="link-css" rel="stylesheet" th:href="@{/css/styles-chat.css}">
+</head>
+<body>
+  <th:block th:replace="layout :: header"></th:block>
+  <div class="messaging">
+    <div class="inbox_msg">
+      <div class="inbox_people">
+        <div class="headind_srch">
+          <div class="recent_heading">
+            <h4>Chat</h4>
+          </div>
+        </div>
+        <div class="inbox_chat">
+          <div class="chat_list active_chat">
+            <div class="chat_people">
+              <div class="chat_img"> <img src="https://variety.com/wp-content/uploads/2016/03/cj-logo-hr.jpg" alt="sunil"> </div>
+              <div class="chat_ib">
+                <h5>CJ Group <span class="chat_date">14-09-2023</span></h5>
+                <p>New message</p>
+              </div>
+            </div>
+          </div>
+          <div class="chat_list">
+            <div class="chat_people">
+              <div class="chat_img"> <img src="https://cdn.haitrieu.com/wp-content/uploads/2021/09/Logo-DH-CONG-NGHE-THANH-PHO-HO-CHI-MINH-HUTECH.png" alt="sunil"> </div>
+              <div class="chat_ib">
+                <h5>Hutech <span class="chat_date">14-09-2023</span></h5>
+                <p>New message</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mesgs">
+        <div class="msg_history">
+          <div class="incoming_msg">
+            <div class="incoming_msg_img"> <img src="https://variety.com/wp-content/uploads/2016/03/cj-logo-hr.jpg" alt="sunil"> </div>
+            <div class="received_msg">
+              <div class="received_withd_msg">
+                <p>Test message</p>
+                <span class="time_date"> 11:01 AM    |    14-09-2023</span></div>
+            </div>
+          </div>
+          <div class="outgoing_msg">
+            <div class="sent_msg">
+              <p>Test message reply</p>
+              <span class="time_date"> 11:01 AM    |    14-09-2023</span> </div>
+          </div>
+        </div>
+        <div class="type_msg">
+          <div class="input_msg_write">
+            <input type="text" class="write_msg" placeholder="Type a message" />
+            <button class="msg_send_btn" type="button"><i class="fa fa-paper-plane-o" aria-hidden="true"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <th:block th:replace="layout :: footer"></th:block>
+</body>
+</html>

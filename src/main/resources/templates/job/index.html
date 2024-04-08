@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta charset="utf-8">
+  <title>Career</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="Free HTML Templates" name="keywords">
+  <meta content="Free HTML Templates" name="description">
+  <th:block th:replace="layout :: link-css"></th:block>
+</head>
+
+<body>
+<th:block th:replace="layout :: topbar"></th:block>
+<th:block th:replace="layout :: header"></th:block>
+
+
+<!-- Page Header Start -->
+<div class="container-fluid bg-secondary mb-5">
+  <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+    <h1 class="font-weight-semi-bold text-uppercase mb-3">Career</h1>
+    <div class="d-inline-flex">
+      <p class="m-0"><a href="/home">Home</a></p>
+      <p class="m-0 px-2">-</p>
+      <p class="m-0">Career</p>
+    </div>
+  </div>
+</div>
+<!-- Page Header End -->
+
+
+<!-- Contact Start -->
+<div class="container-fluid pt-5">
+  <div class="text-center mb-4">
+    <h2 class="section-title px-5"><span class="px-2">We Would Love To Hear From You</span></h2>
+  </div>
+  <div class="row px-xl-5">
+    <div class="col-lg-7 mb-5">
+      <div class="contact-form">
+        <form th:action="@{/tuyendung/nopdon}" th:object="${apply}" method="post" enctype = "multipart/form-data">
+          <div class="control-group">
+            <input th:field="*{name}" required type="text" class="form-control" id="name" placeholder="Your Name"
+                   data-validation-required-message="Please enter your name" />
+            <p class="help-block text-danger"></p>
+          </div>
+          <div class="control-group">
+            <input th:field="*{email}" required  type="email" class="form-control" id="email" placeholder="Your Email"
+                   data-validation-required-message="Please enter your email" />
+            <p class="help-block text-danger"></p>
+          </div>
+          <div class="control-group">
+            <select class="form-control" name="" th:field="*{job.id}" required>
+              <option value="">Jobs *</option>
+              <option th:each="job:${listJob}" th:value="${job.id}"
+                      th:text="${job.title}"></option>
+            </select>
+          </div>
+          <div class="control-group">
+            <input style="margin-top: 10px;" type="file" name="imageCV" accept="image/png, image/jpeg" class="form-control"
+                   required/>
+            <p class="help-block text-danger"></p>
+          </div>
+          <div class="control-group">
+                            <textarea th:field="*{message}" class="form-control" rows="6" id="message" placeholder="Message"
+                                      required
+                                      data-validation-required-message="Please enter your message"></textarea>
+            <p class="help-block text-danger"></p>
+          </div>
+          <div>
+            <button class="btn btn-primary py-2 px-4" type="submit" id="sendMessageButton">Apply</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="col-lg-5 mb-5">
+      <h5 class="font-weight-semi-bold mb-3">Private Your Data</h5>
+      <p>Your email address will not be published. Upload your CV in file input and required fields are marked *</p>
+      <div class="d-flex flex-column mb-3">
+        <h5 class="font-weight-semi-bold mb-3">About HR</h5>
+        <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>TP.HCM</p>
+        <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>vothuanloi110802@gmail.com</p>
+        <p class="mb-2"><i class="fa fa-phone-alt text-primary mr-3"></i>+84 879 345387</p>
+      </div>
+      <div class="d-flex flex-column">
+        <h5 class="font-weight-semi-bold mb-3">About HR</h5>
+        <p class="mb-2"><i class="fa fa-map-marker-alt text-primary mr-3"></i>TP.HCM</p>
+        <p class="mb-2"><i class="fa fa-envelope text-primary mr-3"></i>kybk9a6@gmail.com</p>
+        <p class="mb-0"><i class="fa fa-phone-alt text-primary mr-3"></i>+84 396 651974</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Contact End -->
+
+
+<th:block th:replace="layout :: footer"></th:block>
+</body>
+
+</html>

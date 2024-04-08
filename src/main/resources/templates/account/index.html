@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Account</title>
+  <th:block th:replace="layout :: link-css"></th:block>
+</head>
+<body>
+    <th:block th:replace="layout :: topbar"></th:block>
+    <th:block th:replace="layout :: header"></th:block>
+    <!-- Page Header Start -->
+    <div class="container-fluid bg-secondary mb-5">
+      <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+        <h1 class="font-weight-semi-bold text-uppercase mb-3">Account</h1>
+        <div class="d-inline-flex">
+          <p class="m-0"><a href="/home">Home</a></p>
+          <p class="m-0 px-2">-</p>
+          <p class="m-0">Account</p>
+        </div>
+      </div>
+    </div>
+    <!-- Page Header End -->
+    <div class="container">
+      <div class="row" style="margin: 20px 0;">
+        <div class="col-lg-6 col-md-12 col-sm-12">
+          <div class="account__user">
+            <div class="account__user__avt">
+              <img src="https://www.playtoearn.online/wp-content/uploads/2021/10/Bored-Ape-Yacht-Club-NFT-avatar.png" alt="avatar">
+              <div class="account__user__avt__text">
+                <span>Hello</span>
+                <span style="font-size: 20px; font-weight: 600;" th:text = "${user.name}"></span>
+              </div>
+            </div>
+            <div class="account__user__info">
+              <div class="account__user__info__item">
+                <span>Email:</span>
+                <span style="font-weight: 600;" th:text = "${user.email}"></span>
+                <span>.</span>
+              </div>
+              <div class="account__user__info__item">
+                <span>Phone number:</span>
+                <span style="font-weight: 600;" th:text = "${user.phone}"></span>
+                <span>.</span>
+              </div>
+              <div class="account__user__info__item">
+                <span>Address:</span>
+                <span style="font-weight: 600;" th:text = "${user.address}"></span>
+                <span>.</span>
+              </div>
+              <div class="account__user__info__item" th:if="${user.bmi != null}">
+                <span>BMI:</span>
+                <span style="font-weight: 600;" th:text = "${user.bmi}"></span>
+                <a href="/calc-bmi" class="btn btn-primary" style="margin-left: 10px;">Update</a>
+                <span>.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-12 col-sm-12">
+          <div class="account__member">
+            <div class="account__member__title">
+              <span>Silver</span>
+            </div>
+            <div class="account__member__score">
+              <span>Score: </span>
+              <span style="font-weight: 600;" th:text = "${user.getTotalPoints()}"></span>
+              <span>.</span>
+            </div>
+            <div class="account__member__score" style="margin-top: -10px;">
+              <span>Follower: </span>
+              <span style="font-weight: 600;">10</span>
+              <span>.</span>
+            </div>
+            <div>
+              <a class="btn btn-primary" href="/account/reward">Reward</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Layout when not full field-->
+      <div class="row" th:if="${isFull == false}">
+        <div class="account__update" style="width: 100%;">
+          <div class="account__upadta__desc">
+            Update your personal information for a faster and more convenient ordering experience.
+          </div>
+          <div>
+            <a class="btn btn-primary" href="/account/update">Update</a>
+          </div>
+        </div>
+      </div>
+      <!--Layout calc BMI-->
+      <div class="row" th:if="${user.getBmi() == null}" style="margin-top: 20px;">
+        <div class="account__update" style="width: 100%;">
+          <div class="account__upadta__desc">
+            Calculate your BMI to experience all our benefits for free
+          </div>
+          <div>
+            <a class="btn btn-primary" href="/calc-bmi">Calculator BMI</a>
+          </div>
+        </div>
+      </div>
+      <!--Layout render benefit-->
+      <div class="row" style="margin: 20px 0;">
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="account__box">
+            <div class="account__box__icon">
+              <i class="fa fa-bars" aria-hidden="true"></i>
+            </div>
+            <div class="account__box__title">
+              Menu
+            </div>
+            <div class="account__box__value">
+              <span>
+                Today
+              </span>
+            </div>
+            <div style="margin-top: 10px;">
+              <a href="/menu" class="btn btn-primary">Detail</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="account__box">
+            <div class="account__box__icon">
+              <i class="fa fa-bars" aria-hidden="true"></i>
+            </div>
+            <div class="account__box__title">
+              Workout
+            </div>
+            <div class="account__box__value">
+              <span>
+                Today
+              </span>
+            </div>
+            <div style="margin-top: 10px;">
+              <a href="/workout" class="btn btn-primary">Detail</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="account__box">
+            <div class="account__box__icon">
+              <i class="fa fa-bars" aria-hidden="true"></i>
+            </div>
+            <div class="account__box__title">
+              Health Condition
+            </div>
+            <div class="account__box__value">
+              <span>
+                Yourself
+              </span>
+            </div>
+            <div style="margin-top: 10px;">
+              <a href="/health" class="btn btn-primary">Detail</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin: 20px 0;">
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="account__box">
+            <div class="account__box__icon">
+              <i class="fa fa-heart" aria-hidden="true"></i>
+            </div>
+            <div class="account__box__title">
+              Favorites
+            </div>
+            <div class="account__box__value">
+              <span th:text = "${countFavorite}"></span>
+              <span>
+                Product
+              </span>
+            </div>
+            <div style="margin-top: 10px;">
+              <a href="/account/favorites" class="btn btn-primary">Detail</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="account__box">
+            <div class="account__box__icon">
+              <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            </div>
+            <div class="account__box__title">
+              Orders
+            </div>
+            <div class="account__box__value">
+              <span th:text = "${countOrder}"></span>
+              <span>
+                Order
+              </span>
+            </div>
+            <div style="margin-top: 10px;">
+              <a href="/account/orders" class="btn btn-primary">Detail</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="account__box">
+            <div class="account__box__icon">
+              <i class="fa fa-comment" aria-hidden="true"></i>
+            </div>
+            <div class="account__box__title">
+              Comments
+            </div>
+            <div class="account__box__value">
+              <span th:text = "${countComment}"></span>
+              <span>
+                Comment
+              </span>
+            </div>
+            <div style="margin-top: 10px;">
+              <a href="/account/comments" class="btn btn-primary">Detail</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <th:block th:replace="layout :: footer"></th:block>
+</body>
+</html>

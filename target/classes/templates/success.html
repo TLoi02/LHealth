@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Success</title>
+  <th:block th:replace="layout :: link-css"></th:block>
+</head>
+<body>
+  <th:block th:replace="layout :: topbar"></th:block>
+  <th:block th:replace="layout :: header"></th:block>
+  <div layout:fragment="content" class="container">
+    <div class="error__content">
+      <div class="error__content__type" style="color: #66a95c;">
+        Success
+      </div>
+      <div class="error__content__name">
+        THANK YOU!
+      </div>
+      <div class="error__content__btn">
+        <a href="/" style="color: #66a95c; background-color: #E6F6E3;">
+          Homepage
+        </a>
+      </div>
+    </div>
+  </div>
+  <th:block th:replace="layout :: footer"></th:block>
+</body>
+</html>

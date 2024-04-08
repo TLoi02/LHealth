@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title th:text = "${blog.title}"></title>
+  <th:block th:replace="layout :: link-css"></th:block>
+</head>
+<body>
+  <th:block th:replace="layout :: topbar"></th:block>
+  <th:block th:replace="layout :: header"></th:block>
+  <!-- Page Header Start -->
+  <div class="container-fluid bg-secondary mb-5">
+    <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+      <h1 class="font-weight-semi-bold text-uppercase mb-3" th:text = "${blog.title}"></h1>
+      <div class="d-inline-flex">
+        <p class="m-0"><a href="/blog/list">Blog</a></p>
+        <p class="m-0 px-2">-</p>
+        <p class="m-0" th:text = "${blog.title}"></p>
+      </div>
+    </div>
+  </div>
+  <!-- Page Header End -->
+  <!-- Shop Detail Start -->
+  <div class="container-fluid py-5">
+    <div class="row px-xl-5">
+      <div class="col-lg-5 pb-5">
+        <div id="product-carousel" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner border">
+            <div class="carousel-item active">
+              <img class="w-100 h-100" th:src="@{${blog.image}}" alt="Image">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-7 pb-5">
+        <h3 class="font-weight-semi-bold" th:text="${blog.title}"></h3>
+        <h3 class="font-weight-semi-bold mb-4" >
+          <span th:text="${blog.datepost}"></span>
+        </h3>
+        <p class="mb-4" th:text="${blog.intro}"></p>
+        <p class="mb-4" th:text="${blog.content}"></p>
+      </div>
+    </div>
+  </div>
+  <!-- Shop Detail End -->
+  <th:block th:replace="layout :: footer"></th:block>
+</body>
+</html>

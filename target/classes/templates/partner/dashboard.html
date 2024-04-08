@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard</title>
+  <th:block th:replace="layout :: link-css"></th:block>
+</head>
+<body>
+<th:block th:replace="layout :: topbar"></th:block>
+<th:block th:replace="layout :: header"></th:block>
+<!-- Page Header Start -->
+<div class="container-fluid bg-secondary mb-5">
+  <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+    <h1 class="font-weight-semi-bold text-uppercase mb-3">Gym Dashboard</h1>
+    <div class="d-inline-flex">
+      <p class="m-0"><a href="/">Home</a></p>
+      <p class="m-0 px-2">-</p>
+      <p class="m-0">Gym Dashboard</p>
+    </div>
+  </div>
+</div>
+<!-- Page Header End -->
+<div layout:fragment="content" class="container">
+  <div class="row">
+    <div class="join-content" style="width: 100%;">
+      <div class="join-content__btn no-print">
+        <div class="btn btn-primary">
+          Export
+        </div>
+        <div class="btn btn-primary" onclick="window.print();">
+          Print
+        </div>
+      </div>
+      <div class="join-content__child">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Session</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="reg:${listReg}">
+            <td th:text = "${reg.name}"></td>
+            <td th:text = "${reg.email}"></td>
+            <td th:text = "${reg.phone}"></td>
+            <td th:if="${reg.session_workout == '1'}">Morning</td>
+            <td th:if="${reg.session_workout == '2'}">Afternoon</td>
+            <td th:if="${reg.session_workout == '3'}">Evening</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<th:block th:replace="layout :: footer"></th:block>
+</body>
+</html>

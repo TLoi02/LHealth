@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Community</title>
+  <th:block th:replace="layout :: link-css"></th:block>
+</head>
+<body>
+    <th:block th:replace="layout :: header"></th:block>
+    <div class="container">
+      <div class="row">
+        <div class="job__title">
+          <div class="job__title__name">
+            Community
+          </div>
+          <div class="job__title_nav">
+            <div class="job__title__nav__item first">
+              <a href="/">
+                Home
+              </a>
+            </div>
+            <div class="job__title__nav__item">
+              <i class="fa fa-arrow-right" aria-hidden="true"></i>
+            </div>
+            <div class="job__title__nav__item last">
+              Community
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row" style="margin: 20px 0;">
+        <!--Layout render posts-->
+        <div class="col-lg-8 col-md-12 col-sm-12" style="padding: 20px 40px;border-radius: 20px; background-color: #f0f0f0;">
+          <div class="community__content">
+            <form action="" class="community__content__form">
+              <textarea name="" id=""placeholder="Food you want to share..." required></textarea>
+              <label for="image_food">Upload Image</label>
+              <input id="image_food" style="display: none;" type="file">
+              <button>Post</button>
+            </form>
+
+            <!--Post Items-->
+            <div class="community__content__item">
+              <div class="community__content__item__name">
+                <div class="community__content__item__name__avt">
+                  <img src="https://variety.com/wp-content/uploads/2016/03/cj-logo-hr.jpg" alt="avt">
+                </div>
+                <div class="community__content__item__name__content">
+                  <a target="_blank" href="/community/page" style="font-weight: 600;">CJ Group</a>
+                  <span>14-09-2023</span>
+                </div>
+              </div>
+              <div class="community__content__item__text">
+                <span>Trong thời gian qua, CJ đã thể hiện sứ mệnh của doanh nghiệp trên các lĩnh vực giáo dục, y tế, thể thao và nông nghiệp. Các dự án và sáng kiến do CJ triển khai đã và đang mở ra cơ hội cải thiện điều kiện sinh hoạt cho người dân ở nhiều địa phương, góp phần nâng cao chất lượng cuộc sống, thúc đẩy phát triển toàn diện kinh tế – xã hội.</span>
+              </div>
+              <div class="community__content__item__img">
+                <img src="https://cdn.thesaigontimes.vn/wp-content/uploads/2022/08/CJ_Girls-Education_Hinh-anh-02.jpg" alt="content-image">
+              </div>
+              <div class="community__content__item__btn">
+                <i class="fa fa-heart" aria-hidden="true"></i>
+                <i class="fa fa-comment" aria-hidden="true"></i>
+                <i class="fa fa-share" aria-hidden="true"></i>
+              </div>
+            </div>
+            <div class="community__content__item">
+              <div class="community__content__item__name">
+                <div class="community__content__item__name__avt">
+                  <img src="https://cdn.haitrieu.com/wp-content/uploads/2022/01/Logo-Nha-Thuoc-An-Khang-V-Gr-We.png" alt="avt">
+                </div>
+                <div class="community__content__item__name__content">
+                  <a target="_blank" href="https://www.nhathuocankhang.com/" style="font-weight: 600;">Nhà thuốc An Khang</a>
+                  <span>14-09-2023</span>
+                  <span style="color: #CF3424; font-weight: 650;">Advertised product</span>
+                </div>
+              </div>
+              <div class="community__content__item__text">
+                <span>Mong muốn được chăm sóc, phục vụ sức khỏe cộng đồng với chất lượng tốt nhất và giá cả hợp lý với đội ngũ dược sỹ chuyên môn cao, đáng tin cậy.</span>
+              </div>
+              <div class="community__content__item__img">
+                <img src="https://www.nhathuocankhang.com//images/og_image_home.png" alt="content-image">
+              </div>
+            </div>
+            <div class="community__content__item">
+              <div class="community__content__item__name">
+                <div class="community__content__item__name__avt">
+                  <img src="https://cdn.haitrieu.com/wp-content/uploads/2021/09/Logo-DH-CONG-NGHE-THANH-PHO-HO-CHI-MINH-HUTECH.png" alt="avt">
+                </div>
+                <div class="community__content__item__name__content">
+                  <a href="/community/page" target="_blank" style="font-weight: 600;">Hutech</a>
+                  <span>14-09-2023</span>
+                </div>
+              </div>
+              <div class="community__content__item__text">
+                <span>Sinh viên HUTECH sẽ tham gia Sinh hoạt lớp HKI năm học 2023 - 2024 từ ngày 11/9</span>
+              </div>
+              <div class="community__content__item__img">
+                <img src="https://file1.hutech.edu.vn/file/editor/homepage1/27747-19dqtd4jpg.jpg" alt="content-image">
+              </div>
+              <div class="community__content__item__btn">
+                <i class="fa fa-heart" aria-hidden="true"></i>
+                <i class="fa fa-comment" aria-hidden="true"></i>
+                <i class="fa fa-share" aria-hidden="true"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--Layout like-->
+        <div class="col-lg-4 col-md-12 col-sm-12">
+
+          <div class="community__follow">
+            <div class="community__follow__title">
+              User you follow
+            </div>
+
+            <div class="community__follow__item">
+              <div class="community__follow__item__content">
+                <div class="community__follow__item__content__avt">
+                  <img src="https://variety.com/wp-content/uploads/2016/03/cj-logo-hr.jpg" alt="avt-image">
+                </div>
+                <div class="community__follow__item__content__name">
+                  <a target="_blank" href="/community/page" style="font-weight: 600;">CJ Group</a>
+                  <div>
+                    <span style="font-weight: 600;">20.000</span>
+                    <span>Follower</span>
+                  </div>
+                </div>
+              </div>
+              <div class="community__follow__content__btn">
+                <a href="#">Unfollow</a>
+              </div>
+            </div>
+            <div class="community__follow__item">
+              <div class="community__follow__item__content">
+                <div class="community__follow__item__content__avt">
+                  <img src="https://cdn.haitrieu.com/wp-content/uploads/2021/09/Logo-DH-CONG-NGHE-THANH-PHO-HO-CHI-MINH-HUTECH.png" alt="avt-image">
+                </div>
+                <div class="community__follow__item__content__name">
+                  <a target="_blank" href="/community/page" style="font-weight: 600;">Hutech</a>
+                  <div>
+                    <span style="font-weight: 600;">10.000</span>
+                    <span>Follower</span>
+                  </div>
+                </div>
+              </div>
+              <div class="community__follow__content__btn">
+                <a href="#">Unfollow</a>
+              </div>
+            </div>
+          </div>
+          <div class="community__ads">
+            <div class="commnuity__ads__item">
+              <img src="https://img4.thuthuatphanmem.vn/uploads/2020/06/26/hinh-anh-banner-dien-may-gia-dinh_033704887.png" alt="ads-content">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <th:block th:replace="layout :: footer"></th:block>
+</body>
+</html>

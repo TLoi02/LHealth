@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Account</title>
+    <th:block th:replace="layout :: link-css"></th:block>
+</head>
+<body>
+    <th:block th:replace="layout :: topbar"></th:block>
+    <th:block th:replace="layout :: header"></th:block>
+    <!-- Page Header Start -->
+    <div class="container-fluid bg-secondary mb-5">
+        <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+            <h1 class="font-weight-semi-bold text-uppercase mb-3">Update Account</h1>
+            <div class="d-inline-flex">
+                <p class="m-0"><a href="/account">Account</a></p>
+                <p class="m-0 px-2">-</p>
+                <p class="m-0">Update Account</p>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+    <div class="container">
+        <div class="row">
+            <div class="update__form__wrap">
+                <form th:action="@{/account/update/{id}(id=${user.user_id})}" th:object="${user}" method="post" class="update__form">
+                    <input type="text" th:field="*{name}" placeholder="Your name...">
+                    <select name="province" class="city__content" required>
+                        <option value="">Province</option>
+                    </select>
+                    <select name="district" class="district__content" required>
+                        <option value="">District</option>
+                    </select>
+                    <select name="ward" class="ward__content" required>
+                        <option value="">Ward</option>
+                    </select>
+                    <input type="text" th:field="*{address}" placeholder="Your address...">
+                    <input type="text" th:field="*{phone}" placeholder="Phone number...">
+                    <button class="btn btn-primary" type="submit">Update</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script th:src="@{/js/handel-city.js}"></script>
+    <th:block th:replace="layout :: footer"></th:block>
+</body>
+</html>

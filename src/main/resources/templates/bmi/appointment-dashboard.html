@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Appointment Dashboard</title>
+  <th:block th:replace="layout :: link-css"></th:block>
+</head>
+<body>
+<div layout:fragment="content" class="container">
+  <div class="row no-print">
+    <div class="job__title">
+      <div class="job__title__name">
+        Appointment Dashboard
+      </div>
+      <div class="job__title_nav">
+        <div class="job__title__nav__item first">
+          <a href="/">
+            Home
+          </a>
+        </div>
+        <div class="job__title__nav__item">
+          <i class="fa fa-arrow-right" aria-hidden="true"></i>
+        </div>
+        <div class="job__title__nav__item last">
+          Appointment Dashboard
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="join-content">
+      <div class="join-content__btn no-print">
+        <div class="join-content__btn__item">
+          Export
+        </div>
+        <div class="join-content__btn__item" onclick="window.print();">
+          Print
+        </div>
+      </div>
+      <div class="join-content__child">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Date Appointment</th>
+            <th scope="col">UserId</th>
+            <th scope="col" >Status</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="appointment : ${listAppointment}">
+            <th scope="col" th:text="${appointment.id}">Id</th>
+            <th scope="col" th:text="${appointment.date_appointment}">Date Appointment</th>
+            <th scope="col" th:text="${appointment.user_id}">UserId</th>
+            <th scope="col" th:if="${appointment.isCheck == false}">
+              <a th:href="@{/appointment/dashboard/accept/{id}(id=${appointment.id})}">
+                Accept
+              </a>
+            </th>
+            <th scope="col" th:if="${appointment.isCheck != false}">
+              Confirmed
+            </th>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

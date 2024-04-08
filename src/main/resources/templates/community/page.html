@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Community Page</title>
+    <th:block th:replace="layout :: link-css"></th:block>
+</head>
+<body>
+    <th:block th:replace="layout :: header"></th:block>
+    <div class="container">
+        <div class="row">
+            <div class="job__title">
+                <div class="job__title__name">
+                    CJ Group
+                </div>
+                <div class="job__title_nav">
+                    <div class="job__title__nav__item first">
+                        <a href="/community">
+                            Community
+                        </a>
+                    </div>
+                    <div class="job__title__nav__item">
+                        <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                    </div>
+                    <div class="job__title__nav__item last">
+                        CJ Group
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin: 20px 0;">
+            <!--Layout render posts-->
+            <div class="col-lg-8 col-md-12 col-sm-12" style="padding: 20px 40px;border-radius: 20px; background-color: #f0f0f0;">
+                <div class="community__content">
+                    <div class="com-page__user">
+                        <div class="com-page__user__info">
+                            <div class="com-page__user__info__avt">
+                                <img src="https://variety.com/wp-content/uploads/2016/03/cj-logo-hr.jpg" alt="avt">
+                            </div>
+                            <div class="com-page__user__info__name">
+                                <span>
+                                    <span style="font-weight: 600;">CJ Group</span>
+                                    <div>
+                                        <span style="font-weight: 600;">20.000</span>
+                                        <span>Follower</span>
+                                    </div>
+                                    <span>
+                                        14-09-2023
+                                    </span>
+                                </span>
+                                <div class="com-page__user__info__name__btn">
+                                    <a href="/chat">Message</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="com-page__user__btn">
+                            <a href="#">Unfollow</a>
+                        </div>
+                    </div>
+
+                    <!--Post Items-->
+                    <div class="community__content__item">
+                        <div class="community__content__item__name">
+                            <div class="community__content__item__name__avt">
+                                <img src="https://variety.com/wp-content/uploads/2016/03/cj-logo-hr.jpg" alt="avt">
+                            </div>
+                            <div class="community__content__item__name__content">
+                                <a target="_blank" href="#" style="font-weight: 600;">CJ Group</a>
+                                <span>14-09-2023</span>
+                            </div>
+                        </div>
+                        <div class="community__content__item__text">
+                            <span>Trong thời gian qua, CJ đã thể hiện sứ mệnh của doanh nghiệp trên các lĩnh vực giáo dục, y tế, thể thao và nông nghiệp. Các dự án và sáng kiến do CJ triển khai đã và đang mở ra cơ hội cải thiện điều kiện sinh hoạt cho người dân ở nhiều địa phương, góp phần nâng cao chất lượng cuộc sống, thúc đẩy phát triển toàn diện kinh tế – xã hội.</span>
+                        </div>
+                        <div class="community__content__item__img">
+                            <img src="https://cdn.thesaigontimes.vn/wp-content/uploads/2022/08/CJ_Girls-Education_Hinh-anh-02.jpg" alt="content-image">
+                        </div>
+                        <div class="community__content__item__btn">
+                            <i class="fa fa-heart" aria-hidden="true"></i>
+                            <i class="fa fa-comment" aria-hidden="true"></i>
+                            <i class="fa fa-share" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Layout like-->
+            <div class="col-lg-4 col-md-12 col-sm-12">
+                <!--Render ads-->
+                <div class="community__ads">
+                    <div class="commnuity__ads__item">
+                        <img src="https://img4.thuthuatphanmem.vn/uploads/2020/06/26/hinh-anh-banner-dien-may-gia-dinh_033704887.png" alt="ads-content">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <th:block th:replace="layout :: footer"></th:block>
+</body>
+</html>

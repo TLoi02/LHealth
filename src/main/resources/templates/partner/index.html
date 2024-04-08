@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Join With LTech</title>
+    <th:block th:replace="layout :: link-css"></th:block>
+</head>
+<body>
+    <th:block th:replace="layout :: topbar"></th:block>
+    <th:block th:replace="layout :: header"></th:block>
+    <!-- Page Header Start -->
+    <div class="container-fluid bg-secondary mb-5">
+        <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+            <h1 class="font-weight-semi-bold text-uppercase mb-3">Join</h1>
+            <div class="d-inline-flex">
+                <p class="m-0"><a href="/">Home</a></p>
+                <p class="m-0 px-2">-</p>
+                <p class="m-0">Join</p>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+    <div class="container">
+        <div class="row" style="margin: 20px 0;">
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="job__map">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.6008911730296!2d106.63794702489452!3d10.841823835729668!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175298494ec04ef%3A0x5257dc308f6c160f!2zNDQ4IFBoYW4gSHV5IMONY2gsIFBoxrDhu51uZyAxMiwgR8OyIFbhuqVwLCBUaMOgbmggcGjhu5EgSOG7kyBDaMOtIE1pbmgsIFZpZXRuYW0!5e0!3m2!1sen!2s!4v1691846396501!5m2!1sen!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12">
+                <div class="job__apply">
+                    <div class="job__apply__text">
+                        <div class="job__apply__text__title">
+                            You have a gym that needs to cooperate with LTech ?
+                        </div>
+                        <div class="job__apply__text__desc">
+                            We will send the member management registration link to your registered email. Upload your Logo in file input and required fields are marked *
+                        </div>
+                    </div>
+                    <div class="job__apply__form">
+                        <form class="job__apply__form__child" th:action="@{/join-partner}" th:object="${room}" method="post" enctype = "multipart/form-data">
+                            <input th:field="*{name}" type="text" required autofocus placeholder="Name *">
+                            <input th:field="*{email}" type="email" required placeholder="Email *">
+                            <input th:field="*{price}" type="number" required placeholder="Price *">
+                            <input name="imageLogo" type="file" required />
+                            <button class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <th:block th:replace="layout :: footer"></th:block>
+</body>
+</html>

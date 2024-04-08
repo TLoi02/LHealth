@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator BMI</title>
+    <th:block th:replace="layout :: link-css"></th:block>
+</head>
+<body>
+    <th:block th:replace="layout :: topbar"></th:block>
+    <th:block th:replace="layout :: header"></th:block>
+    <!-- Page Header Start -->
+    <div class="container-fluid bg-secondary mb-5">
+        <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 300px">
+            <h1 class="font-weight-semi-bold text-uppercase mb-3">BMI Handle</h1>
+            <div class="d-inline-flex">
+                <p class="m-0"><a href="/account">Account</a></p>
+                <p class="m-0 px-2">-</p>
+                <p class="m-0">BMI Handle</p>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+    <div class="container">
+        <div class="row" style="margin: 20px 0; display: flex; justify-content: center;">
+            <div class="bmi__form__wrap">
+                <form class="bmi__form" th:action="@{/calc-bmi}" method="post">
+                    <input type="number" placeholder="*Weight" required autofocus name="weight">
+                    <input type="number" placeholder="*Height" required name="height">
+                    <input type="number" placeholder="*Age" required name="age">
+                    <input placeholder="*Job" name="job" required></input>
+                    <textarea class="bmi-textarea" placeholder="*Anamnesis" name="anamnesis" required></textarea>
+                    <textarea class="bmi-textarea" placeholder="*Being treated" name="treated" required></textarea>
+                    <button class="btn btn-primary" type="submit">View Health Status</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <th:block th:replace="layout :: footer"></th:block>
+</body>
+</html>
