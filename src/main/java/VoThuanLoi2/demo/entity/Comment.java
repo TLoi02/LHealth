@@ -16,6 +16,9 @@ public class Comment {
     @Column(name = "content", columnDefinition = "TEXT")
     private String content;
 
+    @Column(name ="ai-status")
+    private String aiStatus;
+
     @Column
     private Date comment__date;
 
